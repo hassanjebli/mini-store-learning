@@ -1,8 +1,8 @@
 import React from "react";
 
-const Product = ({ product, addToCart }) => {
+const Product = ({ product, addToCart ,isDarkMode}) => {
   return (
-    <div className="card shadow-sm border-0 h-100">
+    <div className={`card shadow-sm border-0 h-100 p-3 ${!isDarkMode?"bg-dark-subtle":""} `}>
       <img
         className="card-img-top"
         src={`pictures/${product.thumbnail}`}
@@ -11,7 +11,7 @@ const Product = ({ product, addToCart }) => {
       />
       <div className="card-body d-flex flex-column">
         <h5 className="card-title text-center text-dark fw-bold">
-          {product.title}
+          { product.title}
         </h5>
         <p className="card-text text-center text-muted">{product.price}</p>
         <button

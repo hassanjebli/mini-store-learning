@@ -2,7 +2,7 @@ import React from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { CartItems } from "./CartItems";
 
-const Cart = ({ cart }) => {
+const Cart = ({ cart, isDarkMode }) => {
   const displayGlobalTotal = cart.reduce((total, item) => {
     return (total += parseFloat(item.price));
   }, 0);
@@ -29,7 +29,9 @@ const Cart = ({ cart }) => {
 
       {/* Offcanvas Cart */}
       <div
-        className="offcanvas offcanvas-end"
+        className={`offcanvas offcanvas-end  ${
+          isDarkMode ? "" : "bg-dark text-white"
+        }`}
         tabIndex="-1"
         id="offcanvasCart"
         aria-labelledby="offcanvasCartLabel"
